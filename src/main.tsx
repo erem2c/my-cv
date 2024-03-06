@@ -1,7 +1,8 @@
 import ReactDOM from 'react-dom/client'
 import './index.css'
+import { Fragment } from 'react/jsx-runtime'
 
-const me = [
+const persons = [
   {
     id: 1,
     photo: 'link',
@@ -16,7 +17,23 @@ const me = [
       {institution: 'high', year: '2024', title: 'mgr'}
     ]
   }
+]
 
 ReactDOM.createRoot(document.getElementById('root')!).render(<div>
-
-  </div>)
+  {persons.map(me => (
+    <Fragment key={me.id}>
+    <header></header>
+    <div className='left'>
+      <div><img src="" alt="My photo" /></div>
+      <div>{me.name}</div>
+      <div>{me.lastName}</div>
+      <div>{me.position}</div>
+    </div>
+    <div>
+      <div className='right'></div>
+      <div></div>
+      <div></div>
+    </div>
+    <footer></footer>
+    </Fragment>))}
+</div>)
