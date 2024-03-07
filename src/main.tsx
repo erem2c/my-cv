@@ -5,7 +5,7 @@ import { Fragment } from 'react/jsx-runtime'
 const persons = [
   {
     id: '1',
-    photo: 'link',
+    photo: './src/assets/er.jpg',
     name: 'eR',
     lastName: 'Em',
     position: 'CTO',
@@ -20,36 +20,36 @@ const persons = [
 ]
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <div>
+  <div className='main'>
     {persons.map(me => (
       <Fragment key={me.id}>
-        <header></header>
         <div className='left'>
-          <div><img src="" alt="My photo" /></div>
-          <div>{me.name}</div>
-          <div>{me.lastName}</div>
-          <div>{me.position}</div>
+          <div className='photo'><img src={me.photo} alt="My photo" /></div>
+          <div className='name'>{me.name}</div>
+          <div className='name'>{me.lastName}</div>
+          <div className='position'>{me.position}</div>
         </div>
         <div className='right'>
-          <div>
+          <div className='experience'>
+            <div>Experience</div>
             {me.experience.map(exp => (
               <Fragment key={exp.id}>
-                <span>{exp.description}</span>
-                <span>{exp.year}</span>
+                <span className='description'>{exp.description}</span>
+                <span className='year'>{exp.year}</span>
               </Fragment>
             ))}
           </div>
-          <div>
+          <div className='education'>
+          <div>Education</div>
             {me.education.map(edu => (
               <Fragment key={edu.id}>
-                <span>{edu.institution}</span>
-                <span>{edu.year}</span>
-                <span>{edu.title}</span>
+                <span className='institution'>{edu.institution}</span>
+                <span className='year'>{edu.year}</span>
+                <span className='title'>{edu.title}</span>
               </Fragment>
             ))}
           </div>
         </div>
-        <footer></footer>
       </Fragment>
     ))}
   </div>
